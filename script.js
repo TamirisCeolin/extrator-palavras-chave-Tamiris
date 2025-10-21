@@ -22,7 +22,6 @@ function processaTexto(texto) {
   return ordenadas.slice(0, 10);
 }
 
-
 function contaFrequencias(palavras) {
   let frequencias = {};
 
@@ -37,5 +36,4 @@ function contaFrequencias(palavras) {
   }
 
   return frequencias;
-
 }
