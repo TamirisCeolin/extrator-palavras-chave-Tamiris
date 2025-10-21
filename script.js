@@ -1,15 +1,15 @@
-import { PALAVRAS_RUINS } from "./palavrasRuins";
+import { PALAVRAS_RUINS } from "./palavrasRuins.js";
 
-const botaoMostraPalavras = document.querySelector("#botao-palavrachave");
+const botaoMostraPalavras = document.querySelector('#botao-palavrachave');
 
-botaoMostraPalavras.addEventListener("click", mostraPalavrasChave);
+botaoMostraPalavras.addEventListener('click', mostraPalavrasChave);
 
 function mostraPalavrasChave() {
-  const texto = document.querySelector("#entrada-de-texto").value;
-  const campoResultado = document.querySelector("#resultado-palavrachave");
-  const PalavrasChave = processaTexto(texto);
+  const texto = document.querySelector('#entrada-de-texto').value;
+  const campoResultado = document.querySelector('#resultado-palavrachave');
+  const palavrasChave = processaTexto(texto);
 
-  campoResultado.textContent = PalavrasChave.join(", ");
+  campoResultado.textContent = palavrasChave.join(", ");
 }
 
 function processaTexto(texto) {
@@ -33,29 +33,23 @@ function processaTexto(texto) {
 
 function contaFrequencias(palavras) {
   let frequencias = {};
-
   for (let i of palavras) {
     frequencias[i] = 0;
-
     for (let j of palavras) {
       if (i == j) {
         frequencias[i]++;
       }
     }
   }
-
   return frequencias;
 }
 
 function tiraPalavrasRuins(palavras) {
-
   const palavrasBoas = [];
-
   for (let palavra of palavras) {
     if (!PALAVRAS_RUINS.has(palavra) && palavra.length > 2) {
       palavrasBoas.push(palavra);
     }
   }
-
   return palavrasBoas;
 }
